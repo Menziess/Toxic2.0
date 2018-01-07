@@ -10,8 +10,8 @@ const app: express.Express = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 // universal routing and rendering
-app.get('*', (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, '/../public') });
+app.get('/', (req, res) => {
+  res.render("index.html");
 });
 
 // start the server
