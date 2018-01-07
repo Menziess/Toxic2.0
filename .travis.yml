@@ -6,3 +6,6 @@ install:
   - npm install
 script:
   - npm test
+cache:
+  directories:
+    - node_modules
