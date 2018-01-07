@@ -11,7 +11,7 @@
     "compile": "tsc",
     "dev": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\" \"npm run start\"",
     "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\"",
-    "postinstall": "npm run compile"
+    "postinstall": "./node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
