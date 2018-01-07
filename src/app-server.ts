@@ -7,7 +7,7 @@ import * as express from 'express';
 const app: express.Express = express();
 
 // define the folder that will be used for public assets
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '/../public/')));
 
 // universal routing and rendering
 app.get('/', (req, res) => {
