@@ -8,10 +8,11 @@
     "start": "nodemon --watch dist dist/app-server.js",
     "electron": "electron dist/app-client.js",
     "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
+    "browserify": "mkdir -p public/js && browserify dist/index.js -o public/js/bundle.js",
     "compile": "tsc",
     "dev": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\" \"npm run start\"",
     "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\"",
-    "postinstall": "./node_modules/.bin/tsc"
+    "postinstall": "./node_modules/.bin/tsc && npm run browserify"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "private": true,
   "dependencies": {
     "@types/simple-peer": "^6.1.4",
+    "browserify": "^15.0.0",
     "express": "^4.0.35",
     "express-rewrite": "^0.0.4",
     "simple-peer": "^8.2.0",
