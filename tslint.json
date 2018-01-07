@@ -10,7 +10,18 @@
     "no-bitwise": true,
     "no-conditional-assignment": true,
     "no-consecutive-blank-lines": false,
-    "eofline": true
+    "prefer-const": true,
+    "eofline": true,
+    "no-console": {
+      "options": [
+        "debug",
+        "info",
+        "log",
+        "time",
+        "timeEnd",
+        "trace"
+      ]
+    }
   },
   "jsRules": {
     "max-line-length": {
