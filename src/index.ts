@@ -3,7 +3,6 @@ import * as Peer from 'simple-peer';
 
 if (!Peer.WEBRTC_SUPPORT) { alert("no support!") }
 
-
 const peer = new Peer({
   initiator: location.hash === '#init',
   trickle: false
@@ -29,6 +28,10 @@ yourId.addEventListener('focus', () => {
     const successful = document.execCommand('copy');
     const msg = successful ? 'successful' : 'unsuccessful';
   } catch (err) {
+<<<<<<< HEAD
+=======
+    console.error('Oops, unable to copy');
+>>>>>>> develop
   }
 })
 connectBtn.addEventListener('click', e => {
