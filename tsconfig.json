@@ -6,7 +6,7 @@
     "module": "commonjs",
     "noResolve": true,
     "sourceMap": false,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "removeComments": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
