@@ -17,10 +17,6 @@ app.get('/', (req, res) => {
 // start the server
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'production';
-<<<<<<< HEAD
-app.listen(port, () => { });
-=======
 app.listen(port, () => {
   console.info('Server listening on http://localhost:' + port + ', Ctrl+C to stop')
 });
->>>>>>> develop
