@@ -6,7 +6,7 @@
 
 ### 1. Idea
 
-Creating a decentralized web-based twitter clone for practicing purposes.
+Creating a decentralized web-based twitter clone for practicing purposes. A preview can be seen at: [toxic-2.herokuapp.com](https://toxic-2.herokuapp.com) - keep in mind that it's under construction.
 
 The previous version, Toxic, was a decentralized twitter application, focussed on freedom of speech and lack of censorship.
 
