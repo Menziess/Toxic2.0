@@ -4,7 +4,7 @@
   "description": "Peer to peer twitter-like network.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/tslint/bin/tslint src/**/*.ts{,x}",
     "start": "nodemon --watch dist dist/app-server.js",
     "electron": "electron dist/app-client.js",
     "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
@@ -39,6 +39,7 @@
     "@types/node": "^8.5.7",
     "concurrently": "^3.1.0",
     "nodemon": "^1.2.1",
+    "tslint": "^5.8.0",
     "watchify": "^3.9.0"
   },
   "bugs": {
