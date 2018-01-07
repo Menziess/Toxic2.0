@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/app-server.js",
+    "start": "nodemon --watch dist dist/app-server.js",
     "electron": "electron dist/app-client.js",
     "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
     "compile": "tsc",
