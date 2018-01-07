@@ -10,7 +10,8 @@
     "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
     "compile": "tsc",
     "dev": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\" \"npm run start\"",
-    "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\""
+    "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\"",
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
