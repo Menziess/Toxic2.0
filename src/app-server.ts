@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // universal routing and rendering
 app.get('*', (req, res) => {
-  res.sendFile("index.html", { root: __dirname });
+  res.sendFile("index.html");
 });
 
 // start the server
