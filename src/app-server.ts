@@ -7,7 +7,7 @@ import * as express from 'express';
 const app: express.Express = express();
 
 // define the folder that will be used for public assets
-app.use(express.static(path.join(__dirname, '/../public/')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // universal routing and rendering
 app.get('/', (req, res) => {
@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'production';
 app.listen(port, () => {
-  console.log('Server listening on http://localhost:' + port + ', Ctrl+C to stop')
+  console.info('Server listening on http://localhost:' + port + ', Ctrl+C to stop')
 });
