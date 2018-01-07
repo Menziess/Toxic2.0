@@ -1,7 +1,6 @@
 
 import * as Peer from 'simple-peer';
 
-console.log("Starting peer application...")
 if (!Peer.WEBRTC_SUPPORT) { alert("no support!") }
 
 
@@ -18,7 +17,6 @@ const connectBtn = (<HTMLButtonElement>document.getElementById('connect'))
 const sendBtn = (<HTMLButtonElement>document.getElementById('send'))
 
 peer.on('signal', data => {
-  console.log("signal")
   yourId.value = JSON.stringify(data)
 })
 peer.on('data', data => {
@@ -31,7 +29,6 @@ yourId.addEventListener('focus', () => {
     const successful = document.execCommand('copy');
     const msg = successful ? 'successful' : 'unsuccessful';
   } catch (err) {
-    console.log('Oops, unable to copy');
   }
 })
 connectBtn.addEventListener('click', e => {
@@ -39,6 +36,5 @@ connectBtn.addEventListener('click', e => {
 })
 sendBtn.addEventListener('click', () => {
   peer.send(yourMessage.value)
-  console.log(yourMessage.value)
 })
 

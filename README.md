@@ -2,8 +2,9 @@
 
 [![Build Status](https://travis-ci.org/Menziess/Toxic2.0.svg?branch=master)](https://travis-ci.org/Menziess/Toxic2.0)
 
-### 1. Idea
 <p align="center"><img width="240" src="http://i.imgur.com/af3hpp9.png"></p>
+
+### 1. Idea
 
 Creating a decentralized web-based twitter clone for practicing purposes.
 
