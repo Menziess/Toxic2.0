@@ -1,0 +1,26 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "pretty": true,
+    "target": "es5",
+    "module": "commonjs",
+    "noResolve": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "skipDefaultLibCheck": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "rootDir": "src",
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true
+  },
+  "include": [
+    "src"
+  ]
+}

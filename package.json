@@ -1,0 +1,47 @@
+{
+  "name": "toxic2.0",
+  "version": "1.0.0",
+  "description": "Peer to peer twitter-like network.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch dist dist/app-server.js",
+    "electron": "electron dist/app-client.js",
+    "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
+    "compile": "tsc",
+    "dev": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\" \"npm run start\"",
+    "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Menziess/Toxic2.0.git"
+  },
+  "keywords": [
+    "P2P",
+    "twitter",
+    "network",
+    "decentralized"
+  ],
+  "author": "Stefan Schenk",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@types/simple-peer": "^6.1.4",
+    "express": "^4.0.35",
+    "express-rewrite": "^0.0.4",
+    "simple-peer": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "*",
+    "@types/lodash": "*",
+    "@types/node": "^8.5.7",
+    "concurrently": "^3.1.0",
+    "nodemon": "^1.2.1",
+    "typescript": "^2.1.5",
+    "watchify": "^3.9.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Menziess/Toxic2.0/issues"
+  },
+  "homepage": "https://github.com/Menziess/Toxic2.0#readme"
+}
