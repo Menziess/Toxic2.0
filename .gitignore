@@ -1,3 +1,5 @@
 dist/
+public/js
 node_modules/
-public/js/bundle.js
+.nyc_output/*
+coverage
