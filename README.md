@@ -1,12 +1,14 @@
-# Typescript-Vue-Template
+# Toxic 2.0
 
-[![CircleCI](https://circleci.com/gh/Menziess/Typescript-Vue-Template.svg?style=svg)](https://circleci.com/gh/Menziess/Typescript-Vue-Template)
+[![Build Status](https://travis-ci.org/Menziess/Toxic2.0.svg?branch=master)](https://travis-ci.org/Menziess/Toxic2.0)
 
-<p align="center"><img width="240" src="public/img/tsvue.png"></p>
+<p align="center"><img width="240" src="http://i.imgur.com/af3hpp9.png"></p>
 
 ### 1. Idea
 
-Vue typescript template.
+Creating a decentralized web-based twitter clone for practicing purposes.
+
+The previous version, Toxic, was a decentralized twitter application, focussed on freedom of speech and lack of censorship.
 
 ### 2. Installation
 
@@ -24,13 +26,13 @@ Both Ubuntu and Windows subsystem for Linux:
 
 Cloning the project:
 
-    git clone git@github.com:Menziess/Typescript-Vue-Template.git
-    cd Typescript-Vue-Template
+    git clone git@github.com:Menziess/Toxic2.0.git
+    cd Toxic2.0
 
 Install using yarn
 
     yarn
 
-Run dev for hot reloading
+Run dev using yarn
 
     yarn dev
