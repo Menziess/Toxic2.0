@@ -10,7 +10,7 @@ const app: express.Express = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 // universal routing and rendering
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
   res.render("index.html");
 });
 
@@ -20,3 +20,5 @@ const env = process.env.NODE_ENV || 'production';
 app.listen(port, () => {
   console.info('Server listening on http://localhost:' + port + ', Ctrl+C to stop')
 });
+
+module.exports = app;

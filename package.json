@@ -2,17 +2,18 @@
   "name": "toxic2.0",
   "version": "1.0.0",
   "description": "Peer to peer twitter-like network.",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "./node_modules/tslint/bin/tslint src/**/*.ts{,x}",
-    "start": "nodemon --watch dist dist/app-server.js",
-    "electron": "electron dist/app-client.js",
-    "watchify": "mkdir -p public/js && watchify dist/index.js -o public/js/bundle.js",
-    "browserify": "mkdir -p public/js && browserify dist/index.js -o public/js/bundle.js",
-    "compile": "tsc",
-    "dev": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\" \"npm run start\"",
-    "watch": "concurrently --kill-others \"tsc --watch\" \"npm run watchify\"",
-    "postinstall": "./node_modules/.bin/tsc && npm run browserify"
+    "start": "node dist/server.js",
+    "dev": "webpack-dev-server --hot",
+    "build": "cross-env NODE_ENV=production webpack && tsc",
+    "clean": "rm -rf dist public/js .nyc_output coverage",
+    "pretest": "mkdir -p .nyc_output && tslint src/**/*.ts{,x} --config tslint.json --project tsconfig.json",
+    "test": "yarn run test:coverage",
+    "test:unit": "mocha -r ts-node/register test/**/*.spec.ts --exit",
+    "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=lcov yarn run test:unit",
+    "heroku-prebuild": "yarn --only=dev",
+    "heroku-postbuild": "cross-env NODE_ENV=production webpack && tsc"
   },
   "repository": {
     "type": "git",
@@ -25,25 +26,55 @@
     "decentralized"
   ],
   "author": "Stefan Schenk",
-  "license": "MIT",
   "private": true,
   "dependencies": {
+    "@types/express": "*",
     "@types/simple-peer": "^6.1.4",
-    "browserify": "^15.0.0",
+    "cross-env": "^5.1.3",
+    "css-loader": "^0.28.9",
     "express": "^4.0.35",
     "express-rewrite": "^0.0.4",
-    "simple-peer": "^8.2.0",
-    "typescript": "^2.1.5"
+    "simple-peer": "^8.3.0",
+    "style-loader": "^0.20.1",
+    "ts-loader": "^3.4.0",
+    "tslint-config-airbnb": "^5.6.0",
+    "vue": "^2.5.13",
+    "vue-loader": "^14.1.1",
+    "vue-class-component": "^6.1.2",
+    "vue-property-decorator": "^6.0.0",
+    "vue-template-compiler": "^2.5.13",
+    "vuetify": "^0.17.7"
   },
   "devDependencies": {
-    "@types/express": "*",
+    "@types/chai": "^4.1.2",
     "@types/lodash": "*",
+    "@types/mocha": "^2.2.48",
     "@types/node": "^8.5.7",
-    "concurrently": "^3.1.0",
-    "nodemon": "^1.2.1",
+    "@types/supertest": "^2.0.4",
+    "@types/simple-peer": "^6.1.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.1",
+    "supertest": "^3.0.0",
+    "ts-node": "^4.1.0",
     "tslint": "^5.8.0",
-    "watchify": "^3.9.0"
+    "typescript": "^2.7.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   },
+  "nyc": {
+    "include": [
+      "src/*.ts",
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Menziess/Toxic2.0/issues"
   },

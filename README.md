@@ -1,6 +1,6 @@
 # Toxic 2.0
 
-[![Build Status](https://travis-ci.org/Menziess/Toxic2.0.svg?branch=master)](https://travis-ci.org/Menziess/Toxic2.0)
+[![CircleCI](https://circleci.com/gh/Menziess/Toxic2.0.svg?style=svg&circle-token=82074547487800ed912aecde9156c8e6217abd1f)](https://circleci.com/gh/Menziess/Toxic2.0)
 
 <p align="center"><img width="240" src="http://i.imgur.com/af3hpp9.png"></p>
 
@@ -26,13 +26,13 @@ Both Ubuntu and Windows subsystem for Linux:
 
 Cloning the project:
 
-    $ git clone git@github.com:Menziess/Toxic2.0.git
-    $ cd Toxic2.0
+    git clone git@github.com:Menziess/Toxic2.0.git
+    cd Toxic2.0
 
-Install using npm
+Install using yarn
 
-    $ npm install
+    yarn
 
-Run using npm
+Run dev using yarn
 
-    $ npm start
+    yarn dev
