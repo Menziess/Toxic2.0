@@ -7,6 +7,7 @@ import App from "./components/App.vue";
 import 'vuetify/dist/vuetify.min.css';
 
 import Chat1 from "./components/views/Chat1.vue";
+import Chat2 from "./components/views/Chat2.vue";
 
 
 Vue.use(Vuetify);
@@ -14,9 +15,16 @@ Vue.use(VueRouter);
 
 const routes: any[] = [
   {
-    path: '/v1',
-    name: 'Chat',
+    path: '/',
     component: Chat1,
+  },
+  {
+    path: '/v1',
+    component: Chat1,
+  },
+  {
+    path: '/v2',
+    component: Chat2,
   },
 ];
 
