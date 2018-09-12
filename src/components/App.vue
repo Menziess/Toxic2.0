@@ -1,28 +1,22 @@
 <template>
   <v-app id="inspire">
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout align-center justify-center>
 
-          <v-flex xs12 sm8 md4>
-            <Chat></Chat>
-            <!-- <Chat></Chat> -->
-          </v-flex>
+      <router-view></router-view>
 
-        </v-layout>
-      </v-container>
     </v-content>
   </v-app>
 </template>
 
+<style scoped>
+</style>
+
 <script lang="ts">
-import * as SimplePeer from "simple-peer";
 import { Vue, Component, Prop } from "vue-property-decorator";
-import Chat from "./Chat.vue";
 
 @Component({
   components: {
-    Chat
+    // SomeImportedComponent
   }
 })
 export default class App extends Vue {}
