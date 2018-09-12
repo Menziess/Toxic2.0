@@ -14,16 +14,15 @@ Vue.use(VueRouter);
 
 const routes: any[] = [
   {
-    path: '/chat',
+    path: '/v1',
     name: 'Chat',
-    alias: '/',
     component: Chat1,
   },
 ];
 
 
 
-const router = new VueRouter({ routes });
+const router = new VueRouter({ routes, mode: 'history' });
 
 new Vue({
   el: '#app',
