@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack && tsc",
     "clean": "rm -rf dist public/js .nyc_output coverage",
     "pretest": "mkdir -p .nyc_output && tslint src/**/*.ts{,x} --config tslint.json --project tsconfig.json",
+    "tslint:fix": "tslint --fix 'src/**/*{.ts,.tsx}'",
     "test": "yarn run test:coverage",
     "test:unit": "mocha -r ts-node/register test/**/*.spec.ts --exit",
     "test:coverage": "TS_NODE_COMPILER_OPTIONS='{\"target\":\"es6\"}' nyc --reporter=lcov yarn run test:unit",
