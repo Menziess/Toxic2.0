@@ -15,11 +15,20 @@
               <v-container fluid>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-list two-line>
-                      <template v-for="item in items">
-                        {{ item }}
-                      </template>
+
+                    <v-list>
+                      <v-list-tile
+                        v-for="item in items"
+                        :key="item.id">
+                        <v-list-tile-content>
+                          <v-list-tile-title v-html="item.sender">
+                          </v-list-tile-title>
+                          <v-list-tile-sub-title v-html="item.text">
+                          </v-list-tile-sub-title>
+                        </v-list-tile-content>
+                      </v-list-tile>
                     </v-list>
+
                     <v-text-field
                       v-model="text"
                       box
@@ -46,6 +55,12 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import { setTimeout } from "timers";
 const Peer = require("peerjs");
 
+interface item {
+  id: number;
+  text: String;
+  sender: String;
+}
+
 @Component({})
 export default class Chat2 extends Vue {
   // Step 1: create peer with random id
@@ -56,7 +71,7 @@ export default class Chat2 extends Vue {
 
   // Step 3: create connection variable
   conn = this.peer.connect(this.room);
-  items = [];
+  items: item[] = [];
   text = "";
 
   mounted() {
@@ -73,7 +88,7 @@ export default class Chat2 extends Vue {
   createRoom() {
     console.log("Step 2: Creating room");
     this.peer = new Peer(this.room);
-    this.peer.on("connect", (conn: any) => {
+    this.peer.on("connection", (conn: any) => {
       this.conn = conn;
       this.handleConnection(this.conn);
     });
@@ -83,9 +98,10 @@ export default class Chat2 extends Vue {
     console.log("\tHandling connection");
     this.conn.on("open", () => {
       console.log("\tConnection open");
-      this.conn.on("data", (data: any) => {
+      this.conn.on("data", (item: item) => {
         console.log("\tReceiving data");
-        console.log(data);
+        console.log(item);
+        this.items.push(item);
       });
     });
     this.conn.on("error", (error: any) => console.error("ERROR", error));
@@ -93,8 +109,15 @@ export default class Chat2 extends Vue {
 
   send() {
     if (this.conn.open && this.text.length) {
-      console.log("\tSending data");
-      this.conn.send(this.peer.id + ": " + this.text);
+      console.log("\tSending data: ", this.text);
+      const item = {
+        id: Date.now(),
+        text: this.text,
+        sender: this.peer.id
+      };
+
+      this.conn.send(item);
+      this.items.push(item);
       this.text = "";
     }
   }
