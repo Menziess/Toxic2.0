@@ -13,10 +13,7 @@ app.use(
     rewrites: [],
     disableDotRule: true,
     index: "index.html",
-    htmlAcceptHeaders: [
-      "text/html",
-      "application/xhtml+xml"
-    ]
+    htmlAcceptHeaders: ["text/html"]
   })
 );
 
@@ -33,10 +30,8 @@ const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || "production";
 app.listen(port, () => {
   console.info(
-    "Server listening on http://localhost:"
-    + port
-    + ", Ctrl+C to stop"
-  )
+    "Server listening on http://localhost:" + port + ", Ctrl+C to stop"
+  );
 });
 
 module.exports = app;

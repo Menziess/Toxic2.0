@@ -16,7 +16,7 @@
                 <v-layout row>
                   <v-flex xs12>
 
-                    <v-list>
+                    <v-list class="items">
                       <v-list-tile
                         v-for="item in items"
                         :key="item.id">
@@ -31,14 +31,20 @@
 
                     <v-text-field
                       v-model="text"
+                      @keyup.enter="send"
                       box
                       single-line
-                      label="Message"></v-text-field>
+                      placeholder="Message">
+                    </v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn @click="send" color="primary">Send</v-btn>
+                  <v-btn
+                    @click="send"
+                    color="primary">
+                    Send
+                  </v-btn>
                 </v-card-actions>
               </v-container>
             </v-card-text>
@@ -124,5 +130,9 @@ export default class Chat2 extends Vue {
 }
 </script>
 
-<style>
+<style scoped>
+.items {
+  max-height: 40vh;
+  overflow-y: auto;
+}
 </style>
