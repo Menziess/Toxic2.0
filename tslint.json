@@ -2,9 +2,7 @@
   "rules": {
     "extends": "tslint-config-airbnb",
     "max-line-length": {
-      "options": [
-        120
-      ]
+      "options": [120]
     },
     "new-parens": true,
     "no-arg": true,
@@ -13,21 +11,14 @@
     "no-consecutive-blank-lines": false,
     "prefer-const": true,
     "eofline": true,
+    "quotemark": "single",
     "no-console": {
-      "options": [
-        "debug",
-        "log",
-        "time",
-        "timeEnd",
-        "trace"
-      ]
+      "options": ["debug", "log", "time", "timeEnd", "trace"]
     }
   },
   "jsRules": {
     "max-line-length": {
-      "options": [
-        120
-      ]
+      "options": [120]
     }
   }
 }

@@ -6,7 +6,7 @@
 
         <v-card class="elevation-12">
           <v-toolbar dark color="primary">
-            <v-toolbar-title>Peer Chat</v-toolbar-title>
+            <v-toolbar-title>Peer Chat 1</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
               <v-btn
@@ -78,7 +78,7 @@ import * as SimplePeer from "simple-peer";
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component({})
-export default class Chat extends Vue {
+export default class Chat1 extends Vue {
   dialog: boolean = false;
   initiate: boolean = false;
   peer: SimplePeer.Instance = new SimplePeer({
