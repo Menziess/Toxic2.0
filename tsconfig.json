@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.vue",
   ],
   "compilerOptions": {
     "outDir": "./dist",
