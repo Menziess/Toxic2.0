@@ -4,7 +4,7 @@
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
           <v-toolbar dark color="primary">
-            <v-toolbar-title>Login</v-toolbar-title>
+            <v-toolbar-title>Peer Chat 3</v-toolbar-title>
           </v-toolbar>
 
           <div slot="header">Send a message</div>
@@ -48,14 +48,12 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-// const Gun = require("gun");
-// require("gun/sea");
+const Gun = require('gun');
+require('gun/sea');
 
-// const gun = Gun();
+const gun = Gun();
 
-// const user = gun.user();
-
-const test = 'lol';
+const user = gun.user();
 
 @Component({})
 export default class Post extends Vue {
@@ -68,10 +66,8 @@ export default class Post extends Vue {
       .auth(this.username, this.password)
       .then((user: any) => {
         console.log('user', user);
-        this.$router.push('/');
       })
-      .catch((error: Error) => {
-        alert('Failed to log in');
+      .catch((error: any) => {
         console.log('error', error);
       });
   }
@@ -80,18 +76,14 @@ export default class Post extends Vue {
     user
       .create(this.username, this.password)
       .then((user: any) => {
-        this.$router.push('/');
         console.log(user);
       })
       .catch((error: any) => {
-        alert('Failed to sign up');
         console.log(error);
       });
   }
 
   mounted() {
-    const user = this.$gun.user();
-    console.log(user);
     console.log(location);
   }
 }

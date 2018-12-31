@@ -1,15 +1,26 @@
 {
+  "baseUrl": ".",
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
+    "typings/**/*.d.ts",
   ],
   "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
     "outDir": "./dist",
     "sourceMap": true,
     "strict": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
   }
 }
