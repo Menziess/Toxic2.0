@@ -5,9 +5,7 @@ import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 import App from './components/App.vue';
 import 'vuetify/dist/vuetify.min.css';
-import VueGun from 'vue-gun';
-import SEA from 'gun/sea';
-
+import { install as VueGun } from 'vue-gun';
 import Testing from './components/views/Testing.vue';
 import Post from './components/views/Post.vue';
 import Login from './components/views/Login.vue';
@@ -17,10 +15,6 @@ Vue.use(Vuetify);
 Vue.use(VueRouter);
 
 const routes: any[] = [
-  {
-    path: '/testing',
-    component: Testing,
-  },
   {
     path: '/',
     component: Post,

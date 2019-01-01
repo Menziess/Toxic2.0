@@ -6,11 +6,11 @@
     "typings/**/*.d.ts",
   ],
   "compilerOptions": {
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+    // "paths": {
+    //   "@/*": [
+    //     "src/*"
+    //   ]
+    // },
     "typeRoots": [
       "./node_modules/@types",
       "./typings"

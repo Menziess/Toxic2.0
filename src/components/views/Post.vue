@@ -54,7 +54,6 @@ import VueGun from "vue-gun";
 // const gun = Gun();
 
 // const user = gun.user();
-
 const vm = new Vue();
 
 interface item {
@@ -75,26 +74,28 @@ export default class Post extends Vue {
       const item = {
         id: Date.now(),
         text: this.text,
-        sender: 'asdfasdf'
+        sender: "asdfasdf"
       };
 
       const vm = new Vue();
       console.log(vm.$gun);
 
-      this.$gun.get('m').put(item);
+      this.$gun.get("m").put(item);
 
-      this.$gun.get('m').on((data: any, key: any) => {
-        console.info('gun data', data);
+      this.$gun.get("m").on((data: any, key: any) => {
+        console.info("gun data", data);
         this.items.push(data);
       });
-      this.text = '';
+      this.text = "";
     }
   }
 
   mounted() {
     console.log(location);
+    // tslint:disable-next-line
+    // @ts-ignore
     if (!this.$gun.user.is) {
-      this.$router.push('/login');
+      this.$router.push("/login");
     }
   }
 }

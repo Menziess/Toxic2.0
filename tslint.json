@@ -13,10 +13,12 @@
     "no-consecutive-blank-lines": false,
     "prefer-const": true,
     "eofline": true,
-    "quotemark": [
-      true,
-      "single"
-    ],
+    "semicolon": true,
+    // "quotemark": [
+    //   true,
+    //   "single",
+    //   "double"
+    // ],
     "no-console": {
       "options": [
         // "log",

@@ -46,45 +46,38 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-
-// const Gun = require("gun");
-// require("gun/sea");
-
-// const gun = Gun();
-
-// const user = gun.user();
-
-const test = 'lol';
+import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component({})
 export default class Post extends Vue {
-  username = '';
-  password = '';
+  username = "";
+  password = "";
   show_password = false;
 
   login() {
-    user
+    this.$gun
+      .user()
       .auth(this.username, this.password)
       .then((user: any) => {
-        console.log('user', user);
-        this.$router.push('/');
+        console.log("user", user);
+        this.$router.push("/");
       })
       .catch((error: Error) => {
-        alert('Failed to log in');
-        console.log('error', error);
+        alert("Failed to log in");
+        console.log("error", error);
       });
   }
 
   signup() {
-    user
+    this.$gun
+      .user()
       .create(this.username, this.password)
       .then((user: any) => {
-        this.$router.push('/');
+        this.$router.push("/");
         console.log(user);
       })
       .catch((error: any) => {
-        alert('Failed to sign up');
+        alert("Failed to sign up");
         console.log(error);
       });
   }
