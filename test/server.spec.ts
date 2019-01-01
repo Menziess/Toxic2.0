@@ -7,5 +7,5 @@ describe('index', () => {
   it('200 status code', (done) => {
     request(app).get('/')
       .expect(200, done);
-  })
-})
+  });
+});

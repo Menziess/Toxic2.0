@@ -3,7 +3,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
-    "typings/**/*.d.ts",
+    "typings/**/*.d.ts"
   ],
   "compilerOptions": {
     "typeRoots": [
@@ -16,6 +16,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
-    "experimentalDecorators": true,
+    "experimentalDecorators": true
   }
 }
