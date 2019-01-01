@@ -82,10 +82,6 @@ export default class Post extends Vue {
       });
   }
 
-  mounted() {
-    // const user = this.$gun.user();
-    console.log(this.$gun.user().create("stefan", "test123"));
-    console.log(location);
-  }
+  mounted() {}
 }
 </script>
