@@ -6,11 +6,15 @@ import VueRouter from 'vue-router';
 import App from './components/App.vue';
 import 'vuetify/dist/vuetify.min.css';
 import { install as VueGun } from 'vue-gun';
-import Testing from './components/views/Testing.vue';
+
 import Post from './components/views/Post.vue';
 import Login from './components/views/Login.vue';
 
-Vue.use(VueGun);
+const Gun = require("gun");
+const gun = Gun();
+require("gun/sea");
+
+Vue.use(VueGun, { gun: gun });
 Vue.use(Vuetify);
 Vue.use(VueRouter);
 
@@ -24,8 +28,6 @@ const routes: any[] = [
     component: Login,
   },
 ];
-
-
 
 const router = new VueRouter({ routes, mode: 'history' });
 
