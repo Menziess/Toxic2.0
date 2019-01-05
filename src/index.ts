@@ -14,7 +14,7 @@ const Gun = require("gun");
 const gun = Gun();
 require("gun/sea");
 
-Vue.use(VueGun, { gun: gun });
+Vue.use(VueGun, { gun: gun, peers: [location.origin + '/gun'] });
 Vue.use(Vuetify);
 Vue.use(VueRouter);
 
