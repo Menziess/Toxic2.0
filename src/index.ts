@@ -29,6 +29,8 @@ const routes: any[] = [
   },
 ];
 
+// localStorage.clear();
+
 const router = new VueRouter({ routes, mode: 'history' });
 
 new Vue({

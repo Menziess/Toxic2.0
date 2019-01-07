@@ -3,5 +3,6 @@ declare module 'gun/gun' {
   export default class Gun {
     get(key: string): any;
     user(...args: any[]): any;
+    on(event: string, func: Function): any;
   }
 }

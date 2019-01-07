@@ -10,33 +10,36 @@
           <div slot="header">Send a message</div>
           <v-card>
             <v-card-text>
-              <v-container fluid>
-                <v-layout row>
-                  <v-flex xs12>
-                    <v-text-field label="Username" v-model="username"></v-text-field>
-                  </v-flex>
-                </v-layout>
+              <v-form @submit.prevent="login">
+                <v-container fluid>
+                  <v-layout row>
+                    <v-flex xs12>
+                      <v-text-field label="Username" v-model="username"></v-text-field>
+                    </v-flex>
+                  </v-layout>
 
-                <v-layout row>
-                  <v-flex xs12>
-                    <v-text-field
-                      v-model="password"
-                      :append-icon="show_password ? 'visibility_off' : 'visibility'"
-                      :type="show_password ? 'text' : 'password'"
-                      name="input-10-1"
-                      label="Normal with hint text"
-                      hint="At least 8 characters"
-                      counter
-                      @click:append="show_password = !show_password"
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn @click="login" color="primary">Login</v-btn>
-                  <v-btn @click="signup" color="primary">Signup</v-btn>
-                </v-card-actions>
-              </v-container>
+                  <v-layout row>
+                    <v-flex xs12>
+                      <v-text-field
+                        v-model="password"
+                        :append-icon="show_password ? 'visibility_off' : 'visibility'"
+                        :type="show_password ? 'text' : 'password'"
+                        name="input-10-1"
+                        label="Normal with hint text"
+                        hint="At least 8 characters"
+                        counter
+                        @click:append="show_password = !show_password"
+                        @keyup.enter.native="login"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn @click.native="login" color="primary">Login</v-btn>
+                    <v-btn @click.native="signup" color="primary">Signup</v-btn>
+                  </v-card-actions>
+                </v-container>
+              </v-form>
             </v-card-text>
           </v-card>
         </v-card>
@@ -49,39 +52,31 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 
 @Component({})
-export default class Post extends Vue {
+export default class Login extends Vue {
   username = "";
   password = "";
   show_password = false;
+  user = this.$gun.user();
 
   login() {
-    this.$gun
-      .user()
-      .auth(this.username, this.password)
-      .then((user: any) => {
-        console.log("user", user);
-        this.$router.push("/");
-      })
-      .catch((error: Error) => {
-        alert("Failed to log in");
-        console.log("error", error);
-      });
+    this.user.auth(this.username, this.password);
   }
 
   signup() {
-    this.$gun
-      .user()
-      .create(this.username, this.password)
-      .then((user: any) => {
-        this.$router.push("/");
-        console.log(user);
-      })
-      .catch((error: any) => {
-        alert("Failed to sign up");
-        console.log(error);
-      });
+    this.user.create(this.username, this.password);
   }
 
-  mounted() {}
+  checkLoggedIn(): boolean {
+    if (this.user.is) {
+      this.$router.push("/");
+      return true;
+    }
+    return false;
+  }
+
+  mounted() {
+    this.checkLoggedIn();
+    this.$gun.on("auth", () => this.$router.push("/"));
+  }
 }
 </script>
